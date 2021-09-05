@@ -1,0 +1,9 @@
+A Simple Approach is to traverse the given array one by one and compare every element with given element ‘x’. If matches, then return index.
+The above solution can be Optimized using the fact that difference between all adjacent elements is 1. The idea is to start comparing from the leftmost element and find the difference between current array element and x. Let this difference be ‘diff’. From the given property of array, we always know that x must be at-least ‘diff’ away, so instead of searching one by one, we jump ‘diff’. 
+Thanks to RajnishKrJha for suggesting this solution.
+Below is the implementation of above idea.
+
+
+Time Complexity: O(n)
+
+Auxiliary Space: O(1)
