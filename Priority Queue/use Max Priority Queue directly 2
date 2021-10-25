@@ -1,0 +1,7 @@
+public static ArrayList<Integer> kSmallest(int n, int[] input, int k) {
+		// Write your code here
+        
+        PriorityQueue<Integer> q = new PriorityQueue<Integer>(Collections.reverseOrder());// to get max priority easily
+        
+
+	}
