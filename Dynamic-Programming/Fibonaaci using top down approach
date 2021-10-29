@@ -1,0 +1,50 @@
+public class Main
+{
+    
+    public static int fibM(int n){
+        
+        int storage[]=new int[n+1];
+        
+        for(int i=0;i<=n;i++){
+            
+            storage[i]=-1;
+            
+        }
+        
+        int r=fibM(storage,n);
+        return r;
+        
+    }
+    
+    public static int fibM(int storage[],int n){
+        
+        
+        if(n==0 || n==1){
+            storage[n]=n;
+            return storage[n];
+        }
+        
+        if(storage[n]!=-1){
+            
+            return storage[n];
+            
+        }
+        
+        
+        storage[n]=fibM(storage,n-1) + fibM(storage,n-2);
+        return storage[n];
+        
+        
+    }
+    
+    
+    
+	public static void main(String[] args) {
+		
+		int n=6;
+		
+		System.out.println(fibM(n));
+		// total calls 2(n-1)
+		
+	}
+}
