@@ -1,0 +1,91 @@
+import java.util.*;
+
+
+class Edges{
+    
+    int source;
+    int destination;
+    int weight;
+    
+    Edges(int s,int d,int w){
+        source=s;
+        destination=d;
+        weight=w;
+    }
+    
+    
+}
+
+class SortByWeight implements Comparator<Edges>{
+    
+    public int compare(Edges o1,Edges o2){
+        return o1.weight-o2.weight;
+    }
+    
+    
+    
+    
+    
+}
+
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int V = input.nextInt();
+		int E = input.nextInt();
+
+		ArrayList<Edges> arr=new ArrayList<>();
+        
+        // we are taking input and storing it in an arraylist
+        for(int i=0;i<E;i++){
+            int s=input.nextInt();
+            int d=input.nextInt();
+            int w=input.nextInt();
+            
+            
+            arr.add(new Edges(s,d,w));
+            
+            
+        }
+        
+        
+      /*  for (int i = 0; i < arr.size(); i++){
+            
+        
+            System.out.println(arr.get(i).source +" "+arr.get(i).destination+" "+arr.get(i).weight);
+        
+        }
+          here we are printing arraylist just to check
+        */
+        
+        
+        
+        
+        //now we are sorting arralist based on weight
+        Collections.sort(arr,new SortByWeight());
+        
+        // now arraylist sorted based on weight
+        //you can check by iterating for more clarity
+        
+        
+        
+        
+        /*
+         for (int i = 0; i < arr.size(); i++){
+            
+        
+            System.out.println(arr.get(i).source +" "+arr.get(i).destination+" "+arr.get(i).weight);
+        
+        }
+        
+        */
+        
+        
+        
+        
+        
+        
+	}
+}
