@@ -1,0 +1,4 @@
+NOTE: 1.Collections.sort() method can only take list,linkedlist,arraylist,queue as a argument or parameter. 
+       2. We cannot take hashmap or set in collections .sort directly
+       3. To sort a set using Collections.sort() method , first convert set from set to likedlist, then sort that linked list, and then convert that sorted linked list to LinkedHashSet
+       4. To sort a hashmap , first convert that hashmap to ArrayList of type (Map.Entry) , and sort that arraylist, after sorting arraylist, convert that sorted arraylist to linkedhashmap
