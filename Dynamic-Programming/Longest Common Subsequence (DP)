@@ -1,0 +1,112 @@
+class Solution
+{
+    
+    
+    public static int helper(int x, int y, String s1, String s2,int storage[][]){
+        
+        if(x==0 || y==0){
+            storage[x][y]=0;
+            return storage[x][y];
+        }
+        
+        
+        if(storage[x][y]!=-1){
+            return storage[x][y];
+        }
+        
+        
+         if(s1.charAt(0)==s2.charAt(0)){
+            
+            storage[x][y]=1 + helper(x-1,y-1,s1.substring(1),s2.substring(1),storage);
+            return storage[x][y];
+            
+        }
+        
+        else{
+           // if first character does not match
+           // then there are 3 possible cases
+           
+           //first both are not a part of lcs
+           int w1=helper(x-1,y-1,s1.substring(1),s2.substring(1),storage);
+            
+            
+        // second , , character of first string is a part and character of 2nd string is not a part    
+            int w2=helper(x,y-1,s1,s2.substring(1),storage);
+            
+        
+         // third , , character of second string is a part and character of 1st string is not a part    
+            int w3=helper(x-1,y,s1.substring(1),s2,storage); 
+            
+            
+            storage[x][y]=(int)Math.max(w1,Math.max(w2,w3));
+            
+            return storage[x][y];
+        }
+        
+        
+        
+     
+    }
+    
+    
+    //Function to find the length of longest common subsequence in two strings.
+    static int lcs(int x, int y, String s1, String s2)
+    {
+        // your code here
+        
+        int storage[][]=new int[x+1][y+1];
+        
+      for(int i=0;i<=y;i++){
+          storage[0][i]=0;
+      }
+      
+       for(int i=0;i<=x;i++){
+          storage[i][0]=0;
+      }
+        
+        
+        
+        for(int i=1;i<=x;i++){
+            
+            for(int j=1;j<=y;j++){
+                
+                
+                if(s1.charAt(x-i)==s2.charAt(y-j)){
+                    
+                    storage[i][j]=1+storage[i-1][j-1];
+                }
+                
+                else{
+                    
+                      //first both are not a part of lcs
+           int w1=storage[i-1][j-1];
+            
+            
+        // second , , character of first string is a part and character of 2nd string is not a part    
+            int w2=storage[i][j-1];
+            
+        
+         // third , , character of second string is a part and character of 1st string is not a part    
+            int w3=storage[i-1][j];
+                    
+                    
+              storage[i][j]=Math.max(w1,Math.max(w2,w3));      
+                    
+                    
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+        
+       
+        
+       return storage[x][y];
+        
+        
+    }
+    
+}
