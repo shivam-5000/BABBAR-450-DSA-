@@ -1,0 +1,72 @@
+class Solution 
+{ 
+    
+     public static int helper(int[] weights,int values[],int n,int bagweight,int storage[][]){
+      
+      if(n==0 || bagweight==0){
+         
+          return 0;
+      }
+      
+      if(storage[n][bagweight]!=-1){
+          return storage[n][bagweight];
+      }
+      
+      
+      
+      if(weights[n-1]>bagweight){
+          storage[n][bagweight]=helper(weights,values,n-1,bagweight,storage);
+          return storage[n][bagweight];
+      }
+      
+      else{
+          
+          
+             int value1=values[n-1]+helper(weights,values,n-1,bagweight-weights[n-1],storage);
+            
+            
+            // or it will be left by roberor
+             int value2=helper(weights,values,n-1,bagweight,storage);
+          
+          storage[n][bagweight]=Math.max(value1,value2);
+          
+           return storage[n][bagweight];
+      }
+      
+      
+      
+      
+      
+     
+     
+  }
+    
+    
+    //Function to return max value that can be put in knapsack of capacity W.
+    static int knapSack(int maxWeight, int[] weights,int values[], int n) 
+    { 
+         // your code here 
+         
+           
+      
+       
+         int storage[][]=new int[n+1][maxWeight+1];
+       
+      for(int i=0;i<=n;i++){
+            
+            for(int j=0;j<=maxWeight;j++){
+                storage[i][j]=-1;
+            }
+            
+        }
+        
+        
+          int g=helper(weights,values,n,maxWeight,storage);
+        
+       return g;
+         
+         
+    } 
+}
+
+
