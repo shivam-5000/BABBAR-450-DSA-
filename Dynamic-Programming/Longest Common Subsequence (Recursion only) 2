@@ -1,0 +1,47 @@
+class Solution
+{
+    //Function to find the length of longest common subsequence in two strings.
+    static int lcs(int x, int y, String s1, String s2)
+    {
+        // your code here
+        
+        if(x==0||y==0){
+            return 0;
+        }
+        
+        
+        
+        
+        if(s1.charAt(0)==s2.charAt(0)){
+            
+            int length=1 + lcs(x-1,y-1,s1.substring(1),s2.substring(1));
+            return length;
+            
+        }
+        
+        else{
+           // if first character does not match
+           // then there are 3 possible cases
+           
+           //first both are not a part of lcs   , NOTE: THIS PART IS OPTIONAL , EVENTUALLY IT WILL GET COVERED IN FOLLOWING TWO CASES
+           int w1=lcs(x-1,y-1,s1.substring(1),s2.substring(1));
+            
+            
+        // second , , character of first string is a part and character of 2nd string is not a part    
+            int w2=lcs(x,y-1,s1,s2.substring(1));
+            
+        
+         // third , , character of second string is a part and character of 1st string is not a part    
+            int w3=lcs(x-1,y,s1.substring(1),s2); 
+            
+            
+            int p=(int)Math.max(w1,Math.max(w2,w3));
+            
+            return p;
+        }
+        
+        
+        
+    }
+    
+}
