@@ -1,0 +1,76 @@
+class Main {
+  
+    public static void diagonalOrder(int a[][]){
+        
+        int r=a.length;
+        int c=a[0].length;
+        
+        int rstart=0;
+        
+        while(rstart<r){
+            
+            int i=rstart;
+            
+            for(int j=0;j<c;j++){
+                
+                if(i<0){
+                    break;
+                }
+                
+                System.out.print(a[i][j]+" ");
+                i--;
+            }
+            
+            System.out.println();
+            
+            
+            
+            rstart++;
+        }
+        
+         System.out.println();
+          System.out.println();
+           System.out.println();
+        int cstart=1;
+        while(cstart<c){
+            
+            
+            int j=cstart;
+            int m=a.length-1;
+            for(int i=j;i<c;i++){
+                
+                System.out.print(a[m][i]+" ");
+                m=m-1;
+            }
+            
+            System.out.println();
+            
+            
+            cstart++;
+        }
+        
+        
+        
+        
+        
+        
+        
+    }
+ 
+ 
+ 
+ 
+    // Driver code
+    public static void main(String[] args)
+    {
+        int M[][] = {
+            { 1, 2, 3, 4 },     { 5, 6, 7, 8 },
+            { 9, 10, 11, 12 },  { 13, 14, 15, 16 },
+            { 17, 18, 19, 20 },
+        };
+      
+        System.out.print(
+            "\nDiagonal printing of matrix is \n");
+        diagonalOrder(M);
+    }
+}
