@@ -1,0 +1,19 @@
+REMEMBER the following things while doing quick sort
+
+1. Use do-while()  loop
+2.  do{
+
+
+        }(while(i<j));
+        
+3.  a[i]<=pivot
+
+
+REMEMBER the following things while doing merge sort
+
+1. if(low<high)
+2.   mergerSort(low,mid)
+                        mergeSort(mid+1,high)
+                        
+                       
+3. a[i]<=a[j]                       
